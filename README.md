@@ -89,7 +89,7 @@ dotcli deps $PATH_TO_DOT_FILE $NODE_NAME --direct-only
 ### Relevant Golang libraries
 
 - [awalterschulze/gographviz](https://github.com/awalterschulze/gographviz) <- this repo uses this library
-- [goccy/go-graphviz](https://github.com/goccy/go-graphviz) <- good library, but [requires cgo](https://github.com/goccy/go-graphviz/issues/28)
+- [goccy/go-graphviz](https://github.com/goccy/go-graphviz) <- good library and possible replacement for `awalterschulze/gographviz` but [requires cgo](https://github.com/goccy/go-graphviz/issues/28), maybe fixed via [this solution](https://github.com/go-gl/glfw/pull/280)
 - [golang/tools/cmd/digraph](https://github.com/golang/tools/blob/gopls/v0.4.4/cmd/digraph/digraph.go) <- only supports text; does not support dot language
 - [gonum/gonum](https://github.com/gonum/gonum/tree/master/graph/topo) <- graph algo library
 - [yashbhutwala/go-directed-acyclic-graph](https://github.com/yashbhutwala/go-directed-acyclic-graph)
