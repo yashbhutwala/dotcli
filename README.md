@@ -82,28 +82,28 @@ dotcli deps $PATH_TO_DOT_FILE $NODE_NAME --direct-only
 
 ### Visualization
 
-[dreampuf GraphvizOnline](https://dreampuf.github.io/GraphvizOnline)
-[WebGraphviz](http://www.webgraphviz.com/)
-[Viz.js](http://viz-js.com/)
+- [dreampuf GraphvizOnline](https://dreampuf.github.io/GraphvizOnline)
+- [WebGraphviz](http://www.webgraphviz.com/)
+- [Viz.js](http://viz-js.com/)
 
 ### Relevant Golang libraries
 
-[awalterschulze/gographviz](https://github.com/awalterschulze/gographviz) <- this repo uses this library
-[goccy/go-graphviz](https://github.com/goccy/go-graphviz) <- good library, but [requires cgo](https://github.com/goccy/go-graphviz/issues/28)
-[emicklei/dot](https://github.com/emicklei/dot) <- for writing dot
-[tmc/dot](https://github.com/tmc/dot) <- for writing dot
-[gonum/gonum](https://github.com/gonum/gonum/tree/master/graph/topo) <- graph algo library
-[golang/tools/cmd/digraph](https://github.com/golang/tools/blob/gopls/v0.4.4/cmd/digraph/digraph.go) <- only supports text; does not support dot language
-[yashbhutwala/go-directed-acyclic-graph](https://github.com/yashbhutwala/go-directed-acyclic-graph)
-[yashbhutwala/go-scheduler](https://github.com/yashbhutwala/go-scheduler)
+- [awalterschulze/gographviz](https://github.com/awalterschulze/gographviz) <- this repo uses this library
+- [goccy/go-graphviz](https://github.com/goccy/go-graphviz) <- good library, but [requires cgo](https://github.com/goccy/go-graphviz/issues/28)
+- [golang/tools/cmd/digraph](https://github.com/golang/tools/blob/gopls/v0.4.4/cmd/digraph/digraph.go) <- only supports text; does not support dot language
+- [gonum/gonum](https://github.com/gonum/gonum/tree/master/graph/topo) <- graph algo library
+- [yashbhutwala/go-directed-acyclic-graph](https://github.com/yashbhutwala/go-directed-acyclic-graph)
+- [yashbhutwala/go-scheduler](https://github.com/yashbhutwala/go-scheduler)
+- [emicklei/dot](https://github.com/emicklei/dot) <- for writing dot
+- [tmc/dot](https://github.com/tmc/dot) <- for writing dot
 
 ### Other interesting projects
 
-[ofabry/go-callvis](https://github.com/ofabry/go-callvis)
-[cycloidio/inframap](https://github.com/cycloidio/inframap)
-[jpreese/kustomize-graph](https://github.com/jpreese/kustomize-graph)
-[neo4j/neo4j](https://github.com/neo4j/neo4j)
-[dgraph-io/dgraph](https://github.com/dgraph-io/dgraph)
+- [ofabry/go-callvis](https://github.com/ofabry/go-callvis)
+- [cycloidio/inframap](https://github.com/cycloidio/inframap)
+- [jpreese/kustomize-graph](https://github.com/jpreese/kustomize-graph)
+- [neo4j/neo4j](https://github.com/neo4j/neo4j)
+- [dgraph-io/dgraph](https://github.com/dgraph-io/dgraph)
 
 ## Future
 
