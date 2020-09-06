@@ -36,6 +36,7 @@ func RunNodesCommand(filePath string) error {
 	if err != nil {
 		return err
 	}
+	log.Tracef("%s", graph.String())
 
 	for _, node := range graph.Nodes.Nodes {
 		fmt.Println(node.Name)
