@@ -12,27 +12,27 @@ import (
 	"github.com/yashbhutwala/dotcli/pkg/utils"
 )
 
-type DepFlags struct {
+type SrcFlags struct {
 	DirectOnly bool
 }
 
-func SetupDepsCommand() *cobra.Command {
-	depFlags := &DepFlags{}
+func SetupSrcCommand() *cobra.Command {
+	srcFlags := &SrcFlags{}
 	command := &cobra.Command{
-		Use:   "deps",
-		Short: "the set of all dependencies (direct and transitive) of the specified nodes",
-		Long:  "the set of all dependencies (direct and transitive) of the specified nodes",
+		Use:   "src PATH_TO_DOT_FILE NODE_NAME",
+		Short: "the set of all 'sources' (direct and transitive) of the specified nodes",
+		Long:  "the set of all 'sources' (direct and transitive) of the specified nodes",
 		Args:  cobra.ExactArgs(2),
 		Run: func(cmd *cobra.Command, args []string) {
-			utils.DoOrDie(RunDepsCommand(args[0], args[1], depFlags))
+			utils.DoOrDie(RunDepsCommand(args[0], args[1], srcFlags))
 		},
 	}
 
-	command.Flags().BoolVarP(&depFlags.DirectOnly, "direct-only", "d", false, "if enabled, only print the direct dependencies")
+	command.Flags().BoolVarP(&srcFlags.DirectOnly, "direct-only", "d", false, "if enabled, only print the direct dependencies")
 	return command
 }
 
-func RunDepsCommand(filePath string, nodeName string, depFlags *DepFlags) error {
+func RunDepsCommand(filePath string, nodeName string, srcFlags *SrcFlags) error {
 	log.Tracef("reading filePath: %s", filePath)
 	fileContents, err := ioutil.ReadFile(filePath)
 	if err != nil {
@@ -53,31 +53,31 @@ func RunDepsCommand(filePath string, nodeName string, depFlags *DepFlags) error 
 	}
 	log.Debugf("nodeName: %s found in the graph...continuing", nodeName)
 
-	if depFlags.DirectOnly {
-		log.Infof("calculating only direct dependencies of: '%s'", nodeName)
-		fmt.Println(GetDirectDependencies(graph, nodeName))
+	if srcFlags.DirectOnly {
+		log.Infof("calculating only direct 'sources' of: '%s'", nodeName)
+		fmt.Println(GetOnlyDirectSrcNodes(graph, nodeName))
 	} else {
-		log.Infof("calculating all dependencies of: %s", nodeName)
-		fmt.Println(GetAllDependencies(graph, nodeName))
+		log.Infof("calculating all 'sources' of: %s", nodeName)
+		fmt.Println(GetAllSrcNodes(graph, nodeName))
 	}
 	return nil
 }
 
-func GetAllDependencies(graph *gographviz.Graph, nodeName string) []string {
+func GetAllSrcNodes(graph *gographviz.Graph, nodeName string) []string {
 	var allDeps []string
-	directDependencies := GetDirectDependencies(graph, nodeName)
+	directDependencies := GetOnlyDirectSrcNodes(graph, nodeName)
 	if 0 == len(directDependencies) {
 		return allDeps
 	} else {
 		allDeps = append(allDeps, directDependencies...)
 		for _, directDependency := range directDependencies {
-			allDeps = append(allDeps, GetAllDependencies(graph, directDependency)...)
+			allDeps = append(allDeps, GetAllSrcNodes(graph, directDependency)...)
 		}
 	}
 	return allDeps
 }
 
-func GetDirectDependencies(graph *gographviz.Graph, nodeName string) []string {
+func GetOnlyDirectSrcNodes(graph *gographviz.Graph, nodeName string) []string {
 	dstToSrcForNode := graph.Edges.DstToSrcs[nodeName]
 	if 0 == len(dstToSrcForNode) {
 		return []string{}

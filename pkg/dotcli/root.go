@@ -36,7 +36,8 @@ func (r *RootFlags) SetupRootCommand() *cobra.Command {
 
 	rootCmd.AddCommand(SetupVersionCommand())
 	rootCmd.AddCommand(SetupNodesCommand())
-	rootCmd.AddCommand(SetupDepsCommand())
+	rootCmd.AddCommand(SetupSrcCommand())
+	rootCmd.AddCommand(SetupDstCommand())
 
 	return rootCmd
 }

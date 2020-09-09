@@ -13,7 +13,7 @@ import (
 
 func SetupNodesCommand() *cobra.Command {
 	command := &cobra.Command{
-		Use:   "nodes",
+		Use:   "nodes PATH_TO_DOT_FILE",
 		Short: "the set of all nodes",
 		Long:  "the set of all nodes",
 		Args:  cobra.ExactArgs(1),

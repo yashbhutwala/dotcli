@@ -12,9 +12,12 @@ CLI to query simple graph data written in [**Graphviz DOT**](https://en.wikipedi
     - [Run](#run)
 - [Usage](#usage)
   - [`dotcli nodes <PATH_TO_DOT_FILE>`: print the set of all nodes](#dotcli-nodes-path_to_dot_file-print-the-set-of-all-nodes)
-  - [`dotcli deps <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all dependencies of the specified node](#dotcli-deps-path_to_dot_file-node_name-print-set-of-all-dependencies-of-the-specified-node)
+  - [`dotcli src <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all "source" nodes for the specified node](#dotcli-src-path_to_dot_file-node_name-print-set-of-all-source-nodes-for-the-specified-node)
     - [Both Direct and Transitive](#both-direct-and-transitive)
     - [Direct only](#direct-only)
+  - [`dotcli dst <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all "destination" nodes for the specified node](#dotcli-dst-path_to_dot_file-node_name-print-set-of-all-destination-nodes-for-the-specified-node)
+    - [Both Direct and Transitive](#both-direct-and-transitive-1)
+    - [Direct only](#direct-only-1)
 - [Links](#links)
   - [Visualization](#visualization)
   - [Relevant Golang libraries](#relevant-golang-libraries)
@@ -56,26 +59,48 @@ PATH_TO_DOT_FILE="TODO"
 dotcli nodes $PATH_TO_DOT_FILE
 ```
 
-### `dotcli deps <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all dependencies of the specified node
+### `dotcli src <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all "source" nodes for the specified node
 
 #### Both Direct and Transitive
 
 ```bash
-dotcli deps --help
+dotcli src --help
 
 PATH_TO_DOT_FILE="TODO"
 NODE_NAME="TODO"
-dotcli deps $PATH_TO_DOT_FILE $NODE_NAME
+dotcli src $PATH_TO_DOT_FILE $NODE_NAME
 ```
 
 #### Direct only
 
 ```bash
-dotcli deps --help
+dotcli src --help
 
 PATH_TO_DOT_FILE="TODO"
 NODE_NAME="TODO"
-dotcli deps $PATH_TO_DOT_FILE $NODE_NAME --direct-only
+dotcli src $PATH_TO_DOT_FILE $NODE_NAME --direct-only
+```
+
+### `dotcli dst <PATH_TO_DOT_FILE> <NODE_NAME>`: print set of all "destination" nodes for the specified node
+
+#### Both Direct and Transitive
+
+```bash
+dotcli dst --help
+
+PATH_TO_DOT_FILE="TODO"
+NODE_NAME="TODO"
+dotcli src $PATH_TO_DOT_FILE $NODE_NAME
+```
+
+#### Direct only
+
+```bash
+dotcli dst --help
+
+PATH_TO_DOT_FILE="TODO"
+NODE_NAME="TODO"
+dotcli dst $PATH_TO_DOT_FILE $NODE_NAME --direct-only
 ```
 
 ## Links
